@@ -1,0 +1,33 @@
+package br.com.clarea.exception;
+
+import br.com.clarea.entity.constants.JsonMessageType;
+
+public class ValidationException extends AppException {
+	
+	/*
+	 * Classe de excessões que deve ser usada como quando for um recurso necessário.
+	 * Geralmente quando precisamos passar parâmetros para o objeto JCommomMessage
+	 * Idela é usar as excessões próprias do JAVA
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	public ValidationException(){
+	}
+	  
+	public ValidationException(String errorKey, Object...param){
+		super(errorKey, param);
+	}
+	
+	public ValidationException(JsonMessageType type, String errorKey, Object...param){
+		super(errorKey, errorKey, param);
+	}
+	
+	public ValidationException(String errorKey){
+		super(errorKey);
+	}
+
+	public String toString(){
+	    return "ValidationException["+getKeyMessage()+"]";
+	}  
+}
